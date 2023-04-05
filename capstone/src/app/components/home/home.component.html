@@ -1,20 +1,54 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened
-    ><h3>Two line lists</h3>
-    <mat-list>
-      <mat-list-item>
-        <span matListItemTitle>Title</span>
-        <span matListItemLine>Second line</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Title</span>
-        <span>Second line</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Title</span>
-        Second line
-      </mat-list-item>
-    </mat-list></mat-sidenav
-  >
-  <mat-sidenav-content>Main Content</mat-sidenav-content>
-</mat-sidenav-container>
+<header class="text-center p-5">
+  <h1 class="text-white p-5">Mia Bella e Nuova App</h1>
+
+  <h2 class="sottotitoletto p-5">
+    Benvenuto! Qui potrai fare un sacco di belle cose! come piangere guardando
+    un codice non ottimizzato e pessimo, o non ricordarsi nulla della parte FE
+  </h2>
+</header>
+
+<!--sezione principale-->
+<section class="mt-5 d-flex flex-column p-5">
+  <h2 class="text-center text-white">La Tua App per i tuoi allenamenti!</h2>
+  <div class="row d-flex flex-column align-items-center">
+    <!--card 3-->
+    <hr class="text-light" />
+    <div
+      class="card col-7 col-md-6 col-lg-7 m-5 p-5 d-flex flex-row-reverse border-0"
+    >
+      <img src="../../../assets/squat.jpg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <p class="card-text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error
+          distinctio provident sit, iusto ad laudantium sequi iure qui debitis
+          eos architecto quis voluptatibus repellat odit quia tempore porro
+          ullam a?
+        </p>
+      </div>
+    </div>
+    <!--card 2-->
+    <div class="card col-7 col-md-6 col-lg-7 mb-5 p-5 d-flex flex-row border-0">
+      <img src="../../../assets/trazione.jpg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda,
+          ullam molestias, expedita vel cum quisquam nostrum in ex odit atque,
+          officiis quibusdam. Minima iusto voluptates sunt, explicabo mollitia
+          consequuntur tempora.
+        </p>
+      </div>
+    </div>
+
+    <!--sezione get started-->
+    <hr class="text-light" />
+    <div
+      class="d-flex flex-column p-5 mt-5 justify-content-center align-items-center"
+    >
+      <h2 class="text-white">Inizia Ora e divertiti!</h2>
+      <a class="btn btn-dark p-3 w-25" [routerLink]="['/signup']" role="button"
+        >Get Started!</a
+      >
+    </div>
+  </div>
+</section>
+<!-- sezione finale col bottone get started-->

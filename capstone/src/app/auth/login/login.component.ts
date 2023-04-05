@@ -15,17 +15,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
   login(f: NgForm) {
     this.as.login(f.value).subscribe((res) => {
-      this.router.navigate(['home']);
+      this.router.navigate(['dashboard']);
     });
   }
 }

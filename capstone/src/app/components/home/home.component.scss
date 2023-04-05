@@ -1,10 +1,30 @@
-.example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+header {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url(../../../assets/attrezzatura.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-shadow: 0px 1px rgba(39, 0, 0, 0.79);
+
+  .sottotitoletto {
+    color: rgba(161, 154, 154, 0.1);
+  }
 }
-.example-list-wrapping {
-  max-width: 500px;
+
+section {
+  .card {
+    color: white;
+    background-color: #303030;
+  }
+
+  img {
+    max-width: 20rem;
+    max-height: 20rem;
+  }
+}
+.btn {
+  background-color: #e91e63;
 }

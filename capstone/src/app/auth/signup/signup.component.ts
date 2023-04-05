@@ -10,18 +10,8 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   constructor(private as: AuthService, private r: Router) {}
-  hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
 
   ngOnInit(): void {}
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
 
   register(f: NgForm) {
     this.as.signup(f.value).subscribe((res) => {

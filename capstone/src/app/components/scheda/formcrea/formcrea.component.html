@@ -1,0 +1,46 @@
+<!--main section con le cards delle schede-->
+<section class="container-fluid d-flex flex-column justify-content-center">
+  <h3 class="p-3 text-white p-5">Le Tue Schede di Allenamento</h3>
+  <hr class="text-light" />
+  <app-schedacard></app-schedacard>
+  <hr class="text-light" />
+  <button
+    type="button"
+    class="btn btn-dark m-3"
+    (click)="collapse.toggle()"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"
+  >
+    Aggiungi una Nuova Scheda
+  </button>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="p-5">
+    <!--corpo del form in cui pottrai aggiungere una scheda-->
+    <form #f="ngForm" class="p-2">
+      <label for="exampleInputEmail1" class="form-label text-white"
+        >Inserisci Nome Scheda</label
+      >
+      <input
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        type="text"
+        name="nome"
+        ngModel
+        placeholder="Inserisci la tua email"
+        class="m-2 p-2 form-control w-50"
+      />
+      <label for="exampleFormControlTextarea1" class="form-label text-white"
+        >Inserisci descrizione aggiuntiva</label
+      >
+      <textarea
+        type="text"
+        name="descrizione"
+        ngModel
+        placeholder="Scrivi una descrizione"
+        class="m-2 p-2 form-control w-50"
+        id="exampleFormControlTextarea1"
+      ></textarea>
+
+      <button type="submit" class="btn btn-dark">Crea Scheda</button>
+    </form>
+  </div>
+</section>

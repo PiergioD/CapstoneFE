@@ -1,23 +1,31 @@
-.container {
+body {
+  background-color: #303030;
+  height: fit-content;
+}
+
+/*da metter per far le media query*/
+.contenitore {
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: black;
 }
 @media (min-width: 768px) {
-  .container {
+  .contenitore {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container {
+  .contenitore {
     width: 970px;
   }
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .contenitore {
     width: 1170px;
   }
 }
+
+/*COLORI FISSI*/
+$coloreBottone: #e91e63;
+$ombraTesto: -1px 0px 1px rgba(39, 0, 0, 0.78);
+$coloreSfondo: #303030;
