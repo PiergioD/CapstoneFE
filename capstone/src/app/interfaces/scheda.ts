@@ -1,8 +1,8 @@
 import { Esercizio } from './esercizio';
 
 export interface Scheda {
-  schedaId: Number;
+  id: number;
   nome: string;
-  dataCreazione: string;
-  listaEse: Esercizio[];
+  data: string;
+  esercizi: Esercizio[];
 }

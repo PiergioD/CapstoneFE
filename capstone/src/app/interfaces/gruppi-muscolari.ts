@@ -1,9 +1,10 @@
 export enum GruppiMuscolari {
-  'Gambe',
-  'Bicipiti',
-  'Tricipiti',
-  'Spalle',
-  'Addominali',
-  'Dorso',
-  'Petto',
+  Gambe = 'Gambe',
+  Bicipiti = 'Bicipiti',
+  Tricipiti = 'Tricipiti',
+  Spalle = 'Spalle',
+  Addominali = 'Addominali',
+  Dorso = 'Dorso',
+  Petto = 'Petto',
+  Polpacci = 'Polpacci',
 }

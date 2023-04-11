@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // questi sono presenti nell uath module
 import { LoginComponent } from './auth/login/login.component';
@@ -17,26 +17,32 @@ import { SignupComponent } from './auth/signup/signup.component';
 //componenti
 import { HomeComponent } from './components/home/home.component';
 import { FormcreaComponent } from './components/scheda/formcrea/formcrea.component';
-import { EsercizioPagComponent } from './components/esercizio/esercizio-pag/esercizio-pag.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { SchedaPagComponent } from './components/scheda/scheda-pag/scheda-pag.component';
+import { SchedacardComponent } from './components/scheda/schedacard/schedacard.component';
+import { FormCreaEseComponent } from './components/esercizio/form-crea-ese/form-crea-ese.component';
+import { EsercizioCardComponent } from './components/esercizio/esercizio-card/esercizio-card.component';
 //import di ng-bootstrap
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
-import { SchedacardComponent } from './components/scheda/schedacard/schedacard.component';
+import { EsercizioModificaComponent } from './components/esercizio/esercizio-modifica/esercizio-modifica.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EsercizioPagComponent,
+
     NavbarComponent,
     FooterComponent,
     DashboardComponent,
     FormcreaComponent,
     SchedacardComponent,
+    SchedaPagComponent,
+    FormCreaEseComponent,
+    EsercizioCardComponent,
+    EsercizioModificaComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,7 @@ import { SchedacardComponent } from './components/scheda/schedacard/schedacard.c
     NgbCollapseModule,
     NgbAccordionModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 
   providers: [],

@@ -6,6 +6,9 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+import { SchedaPagComponent } from './components/scheda/scheda-pag/scheda-pag.component';
+import { EsercizioModificaComponent } from './components/esercizio/esercizio-modifica/esercizio-modifica.component';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -23,6 +26,11 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
   },
+  {
+    path: 'scheda/:id',
+    component: SchedaPagComponent,
+  },
+  { path: 'modificaEsercizio/:id', component: EsercizioModificaComponent },
 ];
 
 @NgModule({

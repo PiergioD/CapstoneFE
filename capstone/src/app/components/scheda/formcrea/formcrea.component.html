@@ -16,16 +16,15 @@
   <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="p-5">
     <!--corpo del form in cui pottrai aggiungere una scheda-->
     <form #f="ngForm" class="p-2">
-      <label for="exampleInputEmail1" class="form-label text-white"
+      <label for="exampleFormControlTextarea2" class="form-label text-white"
         >Inserisci Nome Scheda</label
       >
       <input
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
+        id="exampleFormControlTextarea2"
         type="text"
         name="nome"
         ngModel
-        placeholder="Inserisci la tua email"
+        placeholder="Inserisci nome scheda"
         class="m-2 p-2 form-control w-50"
       />
       <label for="exampleFormControlTextarea1" class="form-label text-white"

@@ -12,9 +12,18 @@ export class SchedaServiceService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loadSchede() {
-    return this.http
-      .get<Scheda[]>(`${this.URL}/api/capstone/scheda/page/0/nome`)
-      .pipe(map((ris) => ris));
+  getSchede(username: string | undefined) {
+    return this.http.get<Scheda[]>(
+      this.URL + `/api/capstone/utente/scheda/${username}`
+    );
+  }
+
+  getSchedaSingola(id: number) {
+    const url = `${this.URL}/api/capstone/scheda/${id}`;
+    return this.http.get<Scheda>(url);
+  }
+
+  deleteScheda(id: number) {
+    return this.http.delete(`${this.URL}/api/capstone/scheda` + `/${id}`);
   }
 }

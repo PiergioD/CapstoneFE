@@ -1,11 +1,13 @@
 import { GruppiMuscolari } from './gruppi-muscolari';
 
 export interface Esercizio {
-  esercizio_id: string;
-  nomeEse: string;
+  id: number;
+  nome: string;
   descrizione: string;
   muscolo: GruppiMuscolari;
 
   serie: number;
   ripetizioni: number;
+
+  scheda_id: number;
 }

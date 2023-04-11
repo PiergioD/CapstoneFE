@@ -1,0 +1,78 @@
+<div id="sfondoBg" class="d-flex justify-content-center">
+  <div class="border p-5">
+    <h1 class="text-center">Modifica Esercizio</h1>
+    <form #f="ngForm" (submit)="submit()">
+      <div class="row row-cols-2">
+        <div class="col-md-6 col-lg-8 p-4">
+          <label for="exampleFormControlTextarea2" class="form-label text-white"
+            >Modifica Nome Esercizio</label
+          >
+          <input
+            id="exampleFormControlTextarea2"
+            type="text"
+            name="nome"
+            class="m-2 form-control"
+            maxlength="255"
+            [(ngModel)]="esercizio!.nome"
+          />
+          <label for="exampleFormControlTextarea1" class="form-label text-white"
+            >Modifica descrizione Esercizio</label
+          >
+          <textarea
+            type="text"
+            name="descrizione"
+            maxlength="255"
+            ngModel
+            placeholder="Scrivi una descrizione"
+            class="m-2 form-control"
+            id="exampleFormControlTextarea1"
+            [(ngModel)]="esercizio!.descrizione"
+          ></textarea>
+        </div>
+        <div class="col-md-6 p-4 col-lg-8">
+          <label for="exampleFormControlInput1" class="form-label text-white"
+            >Modifica Quantità Serie</label
+          >
+          <input
+            type="number"
+            class="form-control w-25 m-2"
+            id="exampleFormControlInput1"
+            placeholder="0"
+            min="0"
+            max="150"
+            name="serie"
+            [(ngModel)]="esercizio!.serie"
+          />
+          <label for="exampleFormControlInput2" class="form-label text-white"
+            >Modifica Quantità Ripetizioni</label
+          >
+          <input
+            type="number"
+            class="form-control w-25 m-2"
+            id="exampleFormControlInput2"
+            placeholder="0"
+            min="0"
+            max="150"
+            name="ripetizioni"
+            [(ngModel)]="esercizio!.ripetizioni"
+          />
+
+          <label for="selezioneMuscolo" class="form-label text-white">
+            Seleziona Gruppo Muscolare</label
+          >
+          <select
+            id="selezioneMuscolo"
+            class="form-control w-25 m-2"
+            [(ngModel)]="esercizio.muscolo"
+            name="muscolo"
+          >
+            <option *ngFor="let muscolo of enumGruppi" [value]="muscolo.value">
+              {{ muscolo.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-dark mt-2" type="submit">Modifica</button>
+    </form>
+  </div>
+</div>

@@ -4,34 +4,38 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Scheda } from '../interfaces/scheda';
 
 export interface SignupData {
   name: string;
+  username: string;
   email: string;
   password: string;
 }
 
 export interface AuthData {
   accessToken: string;
-  user: {
-    email: string;
-    id: number;
-    name: string;
-  };
+  tokenType: string;
+
+  roles: string[];
+  email: string;
+  id: number;
+  name: string;
+  username: string;
+  schede: Scheda[];
 }
 
 export interface LoginData {
-  email: string;
+  username: string;
   password: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
   jwtHelper = new JwtHelperService();
-  URL: string = 'http://localhost:4201';
+  URL: string = 'http://localhost:8080';
   private authSubj = new BehaviorSubject<null | AuthData>(null);
   user$ = this.authSubj.asObservable();
   isLoggedIn$ = this.user$.pipe(map((user) => !!user));
@@ -41,19 +45,18 @@ export class AuthService {
     this.restoreUser();
   }
 
-
   login(data: LoginData) {
-
-    return this.http.post<AuthData>(`${this.URL}/login`, data).pipe(
-      tap((data) => {
-        localStorage.setItem('user', JSON.stringify(data));
+    return this.http.post<AuthData>(`${this.URL}/api/auth/login`, data).pipe(
+      tap((response) => {
+        console.log(response);
+        localStorage.setItem('user', JSON.stringify(response));
 
         const expirationDate = this.jwtHelper.getTokenExpirationDate(
-          data.accessToken
+          response.accessToken
         ) as Date;
         this.autoLogout(expirationDate);
 
-        this.authSubj.next(data);
+        this.authSubj.next(response);
       }),
       catchError(this.errors)
     );
@@ -61,8 +64,8 @@ export class AuthService {
 
   signup(data: SignupData) {
     return this.http
-    .post(`${this.URL}/signup`, data)
-    .pipe(catchError(this.errors));
+      .post(`${this.URL}/api/auth/signup`, data)
+      .pipe(catchError(this.errors));
   }
 
   logout() {

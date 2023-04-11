@@ -1,0 +1,98 @@
+<section class="container-fluid d-flex flex-column justify-content-center">
+  <h3 class="p-3 text-white p-5">I tuoi Esercizi</h3>
+  <hr class="text-light" />
+
+  <app-esercizio-card></app-esercizio-card>
+
+  <hr class="text-light" />
+  <button
+    type="button"
+    class="btn btn-dark m-3"
+    (click)="collapse.toggle()"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"
+  >
+    Aggiungi un Nuovo Esercizio
+  </button>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="p-5">
+    <!--corpo del form in cui pottrai aggiungere un esercizio-->
+    <form
+      [formGroup]="esercizioForm"
+      (ngSubmit)="creaEsercizio()"
+      class="p-2 row"
+    >
+      <div class="col-md-6">
+        <label for="exampleFormControlTextarea2" class="form-label text-white"
+          >Inserisci Nome Esercizio</label
+        >
+        <input
+          formControlName="nome"
+          id="exampleFormControlTextarea2"
+          type="text"
+          name="nome"
+          placeholder="Inserisci nome esercizio"
+          class="m-2 p-2 form-control w-50"
+        />
+        <label for="exampleFormControlTextarea1" class="form-label text-white"
+          >Inserisci descrizione Esercizio</label
+        >
+        <textarea
+          formControlName="descrizione"
+          type="text"
+          name="descrizione"
+          placeholder="Scrivi una descrizione"
+          class="m-2 p-2 form-control w-50"
+          id="exampleFormControlTextarea1"
+        ></textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleFormControlInput1" class="form-label text-white"
+          >Inserisci Quantità Serie</label
+        >
+        <input
+          formControlName="serie"
+          type="number"
+          class="form-control w-25 m-2 p-2"
+          id="exampleFormControlInput1"
+          placeholder="0"
+          min="0"
+          max="150"
+          name="serie"
+        />
+        <label for="exampleFormControlInput2" class="form-label text-white"
+          >Inserisci Quantità Ripetizioni</label
+        >
+        <input
+          formControlName="ripetizioni"
+          type="number"
+          class="form-control w-25 m-2 p-2"
+          id="exampleFormControlInput2"
+          placeholder="0"
+          min="0"
+          max="150"
+          name="ripetizioni"
+        />
+        <label for="selezioneMuscolo" class="form-label text-white">
+          Seleziona Gruppo Muscolare</label
+        >
+        <select
+          formControlName="muscolo"
+          id="selezioneMuscolo"
+          class="form-control w-25 m-2"
+          name="muscolo"
+        >
+          <option *ngFor="let muscolo of enumGruppi" [value]="muscolo.value">
+            {{ muscolo.label }}
+          </option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-dark"
+        [disabled]="!esercizioForm.valid"
+      >
+        Crea Esercizio
+      </button>
+    </form>
+  </div>
+</section>
