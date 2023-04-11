@@ -26,4 +26,11 @@ export class SchedaServiceService {
   deleteScheda(id: number) {
     return this.http.delete(`${this.URL}/api/capstone/scheda` + `/${id}`);
   }
+
+  createScheda(newScheda: Partial<Scheda>, id: number) {
+    return this.http.post(
+      this.URL + `/api/capstone/scheda/dashboard/${id}/create`,
+      newScheda
+    );
+  }
 }

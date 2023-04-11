@@ -9,15 +9,13 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
   constructor(private as: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   login(f: NgForm) {
     this.as.login(f.value).subscribe((res) => {
-      this.router.navigate(['dashboard']);
+      this.router.navigate([`dashboard/${res.id}`]);
     });
   }
 }

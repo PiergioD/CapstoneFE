@@ -1,5 +1,17 @@
 .footer {
+  padding: 4rem;
   background-color: #e91e63;
-  height: 150px;
+  height: 100%;
   box-shadow: 2px 0px 10px 0px #000000;
+
+  .list-group {
+    li {
+      background-color: #e91e63;
+      color: white;
+
+      a {
+        color: white;
+      }
+    }
+  }
 }

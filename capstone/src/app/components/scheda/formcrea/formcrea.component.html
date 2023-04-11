@@ -15,7 +15,7 @@
   </button>
   <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="p-5">
     <!--corpo del form in cui pottrai aggiungere una scheda-->
-    <form #f="ngForm" class="p-2">
+    <form class="p-2" #form="ngForm" (ngSubmit)="creaNuovaScheda(form)">
       <label for="exampleFormControlTextarea2" class="form-label text-white"
         >Inserisci Nome Scheda</label
       >
@@ -27,18 +27,6 @@
         placeholder="Inserisci nome scheda"
         class="m-2 p-2 form-control w-50"
       />
-      <label for="exampleFormControlTextarea1" class="form-label text-white"
-        >Inserisci descrizione aggiuntiva</label
-      >
-      <textarea
-        type="text"
-        name="descrizione"
-        ngModel
-        placeholder="Scrivi una descrizione"
-        class="m-2 p-2 form-control w-50"
-        id="exampleFormControlTextarea1"
-      ></textarea>
-
       <button type="submit" class="btn btn-dark">Crea Scheda</button>
     </form>
   </div>

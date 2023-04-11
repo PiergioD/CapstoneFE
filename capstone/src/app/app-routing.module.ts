@@ -23,7 +23,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
     component: DashboardComponent,
   },
   {
