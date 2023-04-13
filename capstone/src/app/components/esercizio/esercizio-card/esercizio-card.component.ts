@@ -7,6 +7,7 @@ import { Scheda } from 'src/app/interfaces/scheda';
 import { Subscription } from 'rxjs';
 import { Esercizio } from 'src/app/interfaces/esercizio';
 import { EsercizioServiceService } from 'src/app/services/esercizio-service.service';
+import AOS from 'aos';
 @Component({
   selector: 'app-esercizio-card',
   templateUrl: './esercizio-card.component.html',
@@ -25,6 +26,7 @@ export class EsercizioCardComponent {
   ) {}
 
   ngOnInit() {
+    AOS.init();
     this.prendiEsercizio();
   }
 

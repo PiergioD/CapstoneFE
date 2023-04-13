@@ -5,6 +5,7 @@ import { Scheda } from 'src/app/interfaces/scheda';
 import { AuthData, AuthService } from 'src/app/auth/auth.service';
 import { Type } from '@angular/compiler';
 import { Location } from '@angular/common';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,8 +20,11 @@ export class DashboardComponent {
   constructor(
     private authServ: AuthService,
     private ss: SchedaServiceService,
-    private location: Location
-  ) {}
+    private location: Location,
+    private spinner: NgxSpinnerService
+  ) {
+    this.spinner.show();
+  }
 
   ngOnInit(): void {
     this.authServ.user$.subscribe((user) => (this.user = user));
@@ -32,6 +36,7 @@ export class DashboardComponent {
     username = this.user?.username;
     this.sub = this.ss.getSchede(username).subscribe((ris) => {
       this.schedaArr = ris;
+      this.spinner.hide();
     });
   }
 }

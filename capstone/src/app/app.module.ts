@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // moduli
@@ -24,6 +24,7 @@ import { SchedaPagComponent } from './components/scheda/scheda-pag/scheda-pag.co
 import { SchedacardComponent } from './components/scheda/schedacard/schedacard.component';
 import { FormCreaEseComponent } from './components/esercizio/form-crea-ese/form-crea-ese.component';
 import { EsercizioCardComponent } from './components/esercizio/esercizio-card/esercizio-card.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 //import di ng-bootstrap
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
@@ -57,7 +58,9 @@ import { BackComponent } from './components/back/back.component';
     NgbAccordionModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule.forRoot({ type: 'cog' }),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   providers: [],
   bootstrap: [AppComponent],

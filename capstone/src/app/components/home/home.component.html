@@ -5,7 +5,7 @@
 <!--sezione principale-->
 <section class="mt-5 d-flex flex-column p-5">
   <h2 class="text-center text-white">La Tua App per i tuoi allenamenti!</h2>
-  <div class="row d-flex flex-column align-items-center">
+  <div class="row d-flex flex-column align-items-center" data-aos="fade-right">
     <!--card 3-->
     <hr class="text-light" />
     <div
@@ -22,7 +22,10 @@
       </div>
     </div>
     <!--card 2-->
-    <div class="card col-7 col-md-6 col-lg-7 mb-5 p-5 d-flex flex-row border-0">
+    <div
+      class="card col-7 col-md-6 col-lg-7 mb-5 p-5 d-flex flex-row border-0"
+      data-aos="fade-left"
+    >
       <img
         src="../../../assets/attrezzatura1.jpg"
         class="card-img-top"
@@ -42,6 +45,7 @@
     <hr class="text-light" />
     <div
       class="d-flex flex-column p-5 mt-5 justify-content-center align-items-center"
+      data-aos="fade-up"
     >
       <h2 class="text-white">Inizia Ora e divertiti!</h2>
       <a class="btn btn-dark p-3 w-25" [routerLink]="['/signup']" role="button"
