@@ -28,6 +28,7 @@ import { EsercizioCardComponent } from './components/esercizio/esercizio-card/es
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { EsercizioModificaComponent } from './components/esercizio/esercizio-modifica/esercizio-modifica.component';
+import { BackComponent } from './components/back/back.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { EsercizioModificaComponent } from './components/esercizio/esercizio-mod
     FormCreaEseComponent,
     EsercizioCardComponent,
     EsercizioModificaComponent,
+    BackComponent,
   ],
   imports: [
     BrowserModule,

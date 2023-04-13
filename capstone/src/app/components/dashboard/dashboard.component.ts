@@ -4,6 +4,7 @@ import { SchedaServiceService } from 'src/app/services/scheda-service.service';
 import { Scheda } from 'src/app/interfaces/scheda';
 import { AuthData, AuthService } from 'src/app/auth/auth.service';
 import { Type } from '@angular/compiler';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,8 @@ export class DashboardComponent {
 
   constructor(
     private authServ: AuthService,
-    private ss: SchedaServiceService
+    private ss: SchedaServiceService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
