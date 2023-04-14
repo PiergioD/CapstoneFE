@@ -120,7 +120,7 @@ export class AuthService {
         return throwError("L'utente non esiste");
         break;
       default:
-        alert('Errore nella chiamata');
+        //alert('Errore nella chiamata');
         return throwError('Errore nella chiamata');
         break;
     }
