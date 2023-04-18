@@ -32,9 +32,10 @@
           name="nome"
           placeholder="Inserisci nome esercizio"
           class="m-2 p-2 form-control w-50"
+          maxlength="200"
         />
         <label for="exampleFormControlTextarea1" class="form-label text-white"
-          >Inserisci descrizione Esercizio</label
+          >Inserisci descrizione Esercizio (Massimo 250 caratteri)</label
         >
         <textarea
           formControlName="descrizione"
@@ -43,6 +44,7 @@
           placeholder="Scrivi una descrizione"
           class="m-2 p-2 form-control w-50"
           id="exampleFormControlTextarea1"
+          maxlength="250"
         ></textarea>
       </div>
       <div class="col-md-6">

@@ -1,14 +1,22 @@
 body {
   height: fit-content;
-  background: #303030;
-  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  background-image: url(../assets/gradient_1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  font-family: "Russo One", sans-serif;
+  text-shadow: 0px 1px rgba(39, 0, 0, 0.79);
 }
 
 /*da metter per far le media query*/
 .contenitore {
-  padding-right: 15px;
   padding-left: 15px;
+  padding-right: 15px;
 }
+
 @media (min-width: 768px) {
   .contenitore {
     width: 750px;

@@ -3,6 +3,7 @@ import { Esercizio } from '../interfaces/esercizio';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
+import { GruppiMuscolari } from '../interfaces/gruppi-muscolari';
 @Injectable({
   providedIn: 'root',
 })

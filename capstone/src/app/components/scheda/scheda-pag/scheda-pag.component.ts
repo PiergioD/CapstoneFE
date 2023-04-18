@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class SchedaPagComponent {
   sub!: Subscription;
   scheda: Scheda | undefined;
+  edit: boolean = false;
 
   constructor(
     private ss: SchedaServiceService,
@@ -34,5 +35,17 @@ export class SchedaPagComponent {
       this.spinner.hide();
       return (this.scheda = post);
     });
+  }
+
+  iniziaModifica() {
+    this.edit = true;
+  }
+
+  modificaTitoloScheda() {
+    if (this.scheda) {
+      this.ss.modificaScheda(this.scheda.id, this.scheda).subscribe(() => {
+        this.edit = false;
+      });
+    }
   }
 }

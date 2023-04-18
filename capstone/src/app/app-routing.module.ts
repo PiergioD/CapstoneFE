@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { SchedaPagComponent } from './components/scheda/scheda-pag/scheda-pag.component';
 import { EsercizioModificaComponent } from './components/esercizio/esercizio-modifica/esercizio-modifica.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
     component: SchedaPagComponent,
   },
   { path: 'modificaEsercizio/:id', component: EsercizioModificaComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({

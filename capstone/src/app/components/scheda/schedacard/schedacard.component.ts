@@ -33,4 +33,11 @@ export class SchedacardComponent {
       this.schede = ris;
     });
   }
+
+  cancellaScheda(id: number) {
+    this.sub = this.ss.deleteScheda(id).subscribe((res) => {
+      this.schede = this.schede?.filter((scheda) => scheda.id != id);
+      console.log(`scheda con ${id} cancellata`);
+    });
+  }
 }

@@ -1,4 +1,6 @@
 header {
+  padding: 10rem;
+
   background: linear-gradient(
       rgba(255, 255, 255, 0.7),
       rgba(255, 255, 255, 0.7)
@@ -14,10 +16,22 @@ header {
   }
 }
 
+.titolo {
+  font-size: 7rem;
+  font-weight: 900;
+  font-style: italic;
+
+  color: #e91e63;
+}
+@media (max-width: 550px) {
+  .titolo {
+    font-size: 3rem;
+  }
+}
+
 section {
   .card {
     color: white;
-    background-color: #303030;
   }
 
   img {
@@ -27,4 +41,6 @@ section {
 }
 .btn {
   background-color: #e91e63;
+  font-weight: 900;
+  font-style: italic;
 }

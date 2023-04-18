@@ -9,6 +9,7 @@ import { Esercizio } from 'src/app/interfaces/esercizio';
 import { EsercizioServiceService } from 'src/app/services/esercizio-service.service';
 import AOS from 'aos';
 import { GruppiMuscolari } from 'src/app/interfaces/gruppi-muscolari';
+
 @Component({
   selector: 'app-esercizio-card',
   templateUrl: './esercizio-card.component.html',
@@ -17,7 +18,7 @@ import { GruppiMuscolari } from 'src/app/interfaces/gruppi-muscolari';
 export class EsercizioCardComponent {
   sub!: Subscription;
   // TODO
-  muscles: Record<GruppiMuscolari, Esercizio[]> | undefined = undefined;
+  // muscles: Record<GruppiMuscolari, Esercizio[]> | undefined = undefined;
   arrEsercizi: Esercizio[] | undefined;
 
   constructor(
@@ -35,6 +36,7 @@ export class EsercizioCardComponent {
   prendiEsercizio() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.ss.getSchedaSingola(id).subscribe((post) => {
+      /* METODO PER REDUCE MA SONO SOLO RIUSCITO A FARE UNA GET,NON SONO RIUSCITO AD IMPLEMENTARE IL RESTANTE CRUD
       this.muscles = post.esercizi.reduce((acc, current) => {
         if (!acc[current.muscolo]) {
           acc[current.muscolo] = [];
@@ -43,12 +45,18 @@ export class EsercizioCardComponent {
         return acc;
       }, {} as Record<GruppiMuscolari, Esercizio[]>);
       console.log(this.muscles);
+
+      */
+      this.arrEsercizi = post.esercizi.sort((a, b) =>
+        a.muscolo < b.muscolo ? -1 : 1
+      );
+      console.log(this.arrEsercizi);
     });
   }
 
   cancellaEsercizio(id: number) {
     this.sub = this.es.deleteEsercizio(id).subscribe(() => {
-      this.arrEsercizi = this.arrEsercizi?.filter((post) => post.id != id);
+      this.arrEsercizi = this.arrEsercizi?.filter((ese) => ese.id != id);
       console.log(`esercizio con ${id} cancellato!`);
     });
   }
