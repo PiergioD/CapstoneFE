@@ -25,6 +25,9 @@
 
     .btn {
       background-color: #e91e63;
+      &:hover {
+        box-shadow: 25vw 0 0 rgba(192, 192, 192, 0.5) inset;
+      }
     }
   }
 }

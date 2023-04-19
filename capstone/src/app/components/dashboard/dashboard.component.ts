@@ -22,11 +22,10 @@ export class DashboardComponent {
     private ss: SchedaServiceService,
     private location: Location,
     private spinner: NgxSpinnerService
-  ) {
-    this.spinner.show();
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.authServ.user$.subscribe((user) => (this.user = user));
 
     this.caricaSchede(this.user?.username);

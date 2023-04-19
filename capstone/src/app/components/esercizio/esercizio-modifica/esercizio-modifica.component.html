@@ -66,7 +66,10 @@
             [(ngModel)]="esercizio.muscolo"
             name="muscolo"
           >
-            <option *ngFor="let muscolo of enumGruppi" [value]="muscolo.value">
+            <option
+              *ngFor="let muscolo of enumGruppi"
+              [ngValue]="muscolo.value"
+            >
               {{ muscolo.label }}
             </option>
           </select>

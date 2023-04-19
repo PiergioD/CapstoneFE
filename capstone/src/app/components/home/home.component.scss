@@ -5,7 +5,7 @@ header {
       rgba(255, 255, 255, 0.7),
       rgba(255, 255, 255, 0.7)
     ),
-    url(../../../assets/attrezzatura.jpg);
+    url(../../../assets/bilanciere.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,4 +43,7 @@ section {
   background-color: #e91e63;
   font-weight: 900;
   font-style: italic;
+  &:hover {
+    box-shadow: 25vw 0 0 rgba(192, 192, 192, 0.5) inset;
+  }
 }

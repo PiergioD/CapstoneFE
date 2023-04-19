@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
       useClass: TokenInterceptor,
       multi: true,
     },
+    [AuthGuard],
   ],
 })
 export class AuthModule {}

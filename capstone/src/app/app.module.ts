@@ -25,12 +25,14 @@ import { SchedacardComponent } from './components/scheda/schedacard/schedacard.c
 import { FormCreaEseComponent } from './components/esercizio/form-crea-ese/form-crea-ese.component';
 import { EsercizioCardComponent } from './components/esercizio/esercizio-card/esercizio-card.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FullCalendarModule } from '@fullcalendar/angular';
 //import di ng-bootstrap
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { EsercizioModificaComponent } from './components/esercizio/esercizio-modifica/esercizio-modifica.component';
 import { BackComponent } from './components/back/back.component';
 import { ErrorComponent } from './components/error/error.component';
+import { SchedulerComponent } from './components/scheduler/scheduler.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { ErrorComponent } from './components/error/error.component';
     EsercizioModificaComponent,
     BackComponent,
     ErrorComponent,
+    SchedulerComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,8 +62,9 @@ import { ErrorComponent } from './components/error/error.component';
     NgbCollapseModule,
     NgbAccordionModule,
     FormsModule,
+    FullCalendarModule,
     ReactiveFormsModule,
-    NgxSpinnerModule.forRoot({ type: 'cog' }),
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

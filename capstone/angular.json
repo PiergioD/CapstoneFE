@@ -27,6 +27,7 @@
             "styles": [
               "src/styles.scss",
               "node_modules/aos/dist/aos.css",
+              "node_modules/ngx-spinner/animations/pacman.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": []
@@ -89,6 +90,7 @@
             "styles": [
               "src/styles.scss",
               "node_modules/aos/dist/aos.css",
+              "node_modules/ngx-spinner/animations/pacman.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": []

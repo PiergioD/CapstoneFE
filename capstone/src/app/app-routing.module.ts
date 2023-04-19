@@ -26,12 +26,18 @@ const routes: Routes = [
   {
     path: 'dashboard/:id',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'scheda/:id',
     component: SchedaPagComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'modificaEsercizio/:id', component: EsercizioModificaComponent },
+  {
+    path: 'modificaEsercizio/:id',
+    component: EsercizioModificaComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', component: ErrorComponent },
 ];
 
