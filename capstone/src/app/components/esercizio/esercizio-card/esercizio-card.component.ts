@@ -33,6 +33,7 @@ export class EsercizioCardComponent {
     this.prendiEsercizio();
   }
 
+  // metodo per prendere gli esercizi dall 'id della scheda passata con la route
   prendiEsercizio() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.ss.getSchedaSingola(id).subscribe((post) => {
@@ -47,6 +48,8 @@ export class EsercizioCardComponent {
       console.log(this.muscles);
 
       */
+
+      // riordino in base al enum
       this.arrEsercizi = post.esercizi.sort((a, b) =>
         a.muscolo < b.muscolo ? -1 : 1
       );
@@ -54,6 +57,7 @@ export class EsercizioCardComponent {
     });
   }
 
+  // metodo per cancellare l'esercizio dall'array tramite id
   cancellaEsercizio(id: number) {
     this.sub = this.es.deleteEsercizio(id).subscribe(() => {
       this.arrEsercizi = this.arrEsercizi?.filter((ese) => ese.id != id);

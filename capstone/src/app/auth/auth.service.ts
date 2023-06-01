@@ -45,12 +45,14 @@ export class AuthService {
     this.restoreUser();
   }
 
+  // metodo per il login che accetta un oggetto logindata
   login(data: LoginData) {
     return this.http.post<AuthData>(`${this.URL}/api/auth/login`, data).pipe(
       tap((response) => {
         console.log(response);
+        // setta un item nel localstorage(l'utente)
         localStorage.setItem('user', JSON.stringify(response));
-
+        // crea un jwt token che farà autologout al termine
         const expirationDate = this.jwtHelper.getTokenExpirationDate(
           response.accessToken
         ) as Date;
@@ -62,12 +64,14 @@ export class AuthService {
     );
   }
 
+  // metodo per il signup che accetterà un oggetto signupdata
   signup(data: SignupData) {
     return this.http
       .post(`${this.URL}/api/auth/signup`, data)
       .pipe(catchError(this.errors));
   }
 
+  // metodo per il logout che sesgnala di espellere l'utente dal localstorage
   logout() {
     this.authSubj.next(null); //segnalare al sito che non siamo più loggati
     this.router.navigate(['/login']);
@@ -77,22 +81,25 @@ export class AuthService {
     }
   }
 
+  // riprende l'user dopo il login
   restoreUser() {
     const userJson = localStorage.getItem('user');
     if (!userJson) {
       return;
     }
+    // controlla se il jwt token non è scaduto
     const user: AuthData = JSON.parse(userJson);
     if (this.jwtHelper.isTokenExpired(user.accessToken)) {
       return;
     }
+    // setta una nuova expiration date al token
     this.authSubj.next(user);
     const expirationDate = this.jwtHelper.getTokenExpirationDate(
       user.accessToken
     ) as Date;
     this.autoLogout(expirationDate);
   }
-
+  //fa l'autologout se il token è scaduto
   autoLogout(expirationDate: Date) {
     //getTime da il valore della data in ms
     const expMs = expirationDate.getTime() - new Date().getTime(); //ms rimasti primache scada

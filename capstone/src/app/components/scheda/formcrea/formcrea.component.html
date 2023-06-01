@@ -2,8 +2,12 @@
 <section class="container-fluid d-flex flex-column justify-content-center">
   <h3 class="p-3 text-white p-5">Le Tue Schede di Allenamento</h3>
   <hr class="text-light" />
+
+  <!--ARRAY SCHEDE-->
   <app-schedacard></app-schedacard>
   <hr class="text-light" />
+
+  <!--ACCORDION PER IL FORM-->
   <button
     type="button"
     class="btn btn-dark m-3"
@@ -14,8 +18,10 @@
     Aggiungi una Nuova Scheda
   </button>
   <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="p-5">
-    <!--corpo del form in cui pottrai aggiungere una scheda-->
+    <!--FORM PER LA CREAZIONE DELLA SCHEDA-->
+
     <form class="p-2" #form="ngForm" (ngSubmit)="creaNuovaScheda(form)">
+      <!--inizio input nome-->
       <label for="exampleFormControlTextarea2" class="form-label text-white"
         >Inserisci Nome Scheda</label
       >
@@ -29,6 +35,7 @@
         maxlength="150"
       />
       <button type="submit" class="btn btn-dark">Crea Scheda</button>
+      <!--fine input nome-->
     </form>
   </div>
 </section>

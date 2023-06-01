@@ -39,6 +39,7 @@ export class EsercizioModificaComponent {
     this.prendiEsercizio();
   }
 
+  // prendi esercizio dalla id presente nella route
   prendiEsercizio() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.se.getEsercizio(id).subscribe((post) => {
@@ -47,6 +48,7 @@ export class EsercizioModificaComponent {
     });
   }
 
+  // submita lesercizio modifica con alert e riporta indietro
   submit() {
     if (this.esercizio) {
       this.se

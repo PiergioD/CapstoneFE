@@ -1,10 +1,12 @@
 <section class="container-fluid d-flex flex-column justify-content-center">
   <h3 class="p-3 text-white p-5">I tuoi Esercizi</h3>
   <hr class="text-light" />
+  <!-- ARRAY DI ESERCIZI CARD-->
 
   <app-esercizio-card></app-esercizio-card>
 
   <hr class="text-light" />
+  <!--ACCORDION PER IL FORM -->
   <button
     type="button"
     class="btn btn-dark m-3"
@@ -15,13 +17,14 @@
     Aggiungi un Nuovo Esercizio
   </button>
   <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="p-5">
-    <!--corpo del form in cui pottrai aggiungere un esercizio-->
+    <!--FORM REACTIVE PER LA CREAZIONE ESERCIZIO-->
     <form
       [formGroup]="esercizioForm"
       (ngSubmit)="creaEsercizio()"
       class="p-2 row"
     >
       <div class="col-md-6">
+        <!--inizio input nome-->
         <label for="exampleFormControlTextarea2" class="form-label text-white"
           >Inserisci Nome Esercizio</label
         >
@@ -34,6 +37,8 @@
           class="m-2 p-2 form-control w-50"
           maxlength="200"
         />
+        <!--fine input nome-->
+        <!--inizio input descr-->
         <label for="exampleFormControlTextarea1" class="form-label text-white"
           >Inserisci descrizione Esercizio (Massimo 250 caratteri)</label
         >
@@ -46,8 +51,10 @@
           id="exampleFormControlTextarea1"
           maxlength="250"
         ></textarea>
+        <!--fine input descr-->
       </div>
       <div class="col-md-6">
+        <!--inizio input serie-->
         <label for="exampleFormControlInput1" class="form-label text-white"
           >Inserisci Quantità Serie</label
         >
@@ -61,6 +68,8 @@
           max="150"
           name="serie"
         />
+        <!--fine input serie-->
+        <!--inizio input ripe-->
         <label for="exampleFormControlInput2" class="form-label text-white"
           >Inserisci Quantità Ripetizioni</label
         >
@@ -74,6 +83,8 @@
           max="150"
           name="ripetizioni"
         />
+        <!--fine input ripe-->
+        <!--inizio input enum-->
         <label for="selezioneMuscolo" class="form-label text-white">
           Seleziona Gruppo Muscolare</label
         >
@@ -87,7 +98,9 @@
             {{ muscolo.label }}
           </option>
         </select>
+        <!--fine input enum-->
       </div>
+      <!-- bottone per submit-->
       <button
         type="submit"
         class="btn btn-dark"

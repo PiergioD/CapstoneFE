@@ -1,9 +1,11 @@
 <div id="sfondoBg" class="d-flex justify-content-center">
+  <!-- FORM REACTIVE PER LA MODIFICA ESERCIZIO-->
   <div class="border p-5">
     <h1 class="text-center">Modifica Esercizio</h1>
     <form #f="ngForm" (submit)="submit()">
       <div class="row row-cols-2">
         <div class="col-md- col-lg-8 col-9 p-4">
+          <!-- inizio input per modifica nome-->
           <label for="exampleFormControlTextarea2" class="form-label text-white"
             >Modifica Nome Esercizio</label
           >
@@ -15,6 +17,8 @@
             maxlength="250"
             [(ngModel)]="esercizio!.nome"
           />
+          <!-- fine inpput modifica nome-->
+          <!--inizioo input modifica descrizione-->
           <label for="exampleFormControlTextarea1" class="form-label text-white"
             >Modifica descrizione Esercizio</label
           >
@@ -28,8 +32,11 @@
             id="exampleFormControlTextarea1"
             [(ngModel)]="esercizio!.descrizione"
           ></textarea>
+          <!--fine input modifica descrizione-->
         </div>
+
         <div class="col-md-6 p-4 col-lg-8 col-md-6 col-9">
+          <!--inizio input modifica serie-->
           <label for="exampleFormControlInput1" class="form-label text-white"
             >Modifica Quantità Serie</label
           >
@@ -43,6 +50,8 @@
             name="serie"
             [(ngModel)]="esercizio!.serie"
           />
+          <!--fine input modifica serie-->
+          <!--inizio input modifica ripe-->
           <label for="exampleFormControlInput2" class="form-label text-white"
             >Modifica Quantità Ripetizioni</label
           >
@@ -56,7 +65,8 @@
             name="ripetizioni"
             [(ngModel)]="esercizio!.ripetizioni"
           />
-
+          <!--fine input modifica ripe-->
+          <!--inizio input modifica enum-->
           <label for="selezioneMuscolo" class="form-label text-white">
             Seleziona Gruppo Muscolare</label
           >
@@ -73,9 +83,10 @@
               {{ muscolo.label }}
             </option>
           </select>
+          <!--fine input modifica enum-->
         </div>
       </div>
-
+      <!--bottincino di submit-->
       <button class="btn btn-dark mt-2" type="submit">Modifica</button>
     </form>
   </div>

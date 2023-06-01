@@ -22,11 +22,13 @@ export class SchedacardComponent {
     private ss: SchedaServiceService
   ) {}
   ngOnInit() {
+    // settaa l'user dalla subscription
     this.authServ.user$.subscribe((user) => (this.user = user));
     this.caricaSchede(this.user?.username);
     AOS.init();
   }
 
+  // prende le schede dal service usando l'usernmae prendendolo da user
   caricaSchede(username: string | undefined) {
     username = this.user?.username;
     this.sub = this.ss.getSchede(username).subscribe((ris) => {
@@ -34,6 +36,7 @@ export class SchedacardComponent {
     });
   }
 
+  // cancella la  scheda tramite id
   cancellaScheda(id: number) {
     this.sub = this.ss.deleteScheda(id).subscribe((res) => {
       this.schede = this.schede?.filter((scheda) => scheda.id != id);

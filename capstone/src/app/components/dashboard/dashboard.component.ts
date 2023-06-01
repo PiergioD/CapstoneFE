@@ -24,6 +24,7 @@ export class DashboardComponent {
     private spinner: NgxSpinnerService
   ) {}
 
+  // nell ngOniti cè lo spinner e setta l'user nel componente
   ngOnInit(): void {
     this.spinner.show();
     this.authServ.user$.subscribe((user) => (this.user = user));
@@ -31,6 +32,7 @@ export class DashboardComponent {
     this.caricaSchede(this.user?.username);
   }
 
+  // con la sub prendo dal service le schede dello user tramite il nome e setto l'array su cui fare ngfor
   caricaSchede(username: string | undefined) {
     username = this.user?.username;
     this.sub = this.ss.getSchede(username).subscribe((ris) => {

@@ -25,6 +25,7 @@ export class FormcreaComponent {
 
   ngOnInit() {}
 
+  // prende il valore del form e crea una nuova scheda
   creaNuovaScheda(f: NgForm) {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.ss.createScheda(f.value, id).subscribe((data) => {

@@ -18,6 +18,7 @@ export class FormCreaEseComponent {
   public isCollapsed = true;
   sub!: Subscription;
   esercizioForm!: FormGroup;
+  // questo enum è presente anche nel backend
   enumGruppi = [
     { value: GruppiMuscolari.Addominali, label: 'Addominali' },
     { value: GruppiMuscolari.Bicipiti, label: 'Bicipiti' },
@@ -36,6 +37,7 @@ export class FormCreaEseComponent {
     private location: Location
   ) {}
 
+  // iin questo oninit metto il formgropu per il reactive form
   ngOnInit() {
     this.esercizioForm = new FormGroup({
       nome: new FormControl('', Validators.required),
@@ -46,12 +48,14 @@ export class FormCreaEseComponent {
     });
   }
 
+  // metodo per creare l'esercizio
   creaEsercizio() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     console.log(this.esercizioForm);
     this.se
       .createEsercizio(
         {
+          // prendo i valori del form e li uso nel metodo del service per creare nel backend un oggetto esercizio
           //mi serve l'id???
           nome: this.esercizioForm.value.nome,
           descrizione: this.esercizioForm.value.descrizione,
